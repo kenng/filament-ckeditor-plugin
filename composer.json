@@ -1,0 +1,23 @@
+{
+    "name": "kenng/filament-ckeditor",
+    "description": "CKEditor plugin for Filamentphp Forms",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.0",
+        "filament/filament": "^2.0",
+        "spatie/laravel-package-tools": "^1.13.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kenng\\FilamentCkeditor\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ken Ng",
+            "email": "kenngsimply@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
