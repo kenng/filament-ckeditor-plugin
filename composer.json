@@ -19,5 +19,15 @@
             "email": "kenngsimply@gmail.com"
         }
     ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Kenng\\FilamentCkeditor\\CKEditorServiceProvider"
+            ],
+            "aliases": {
+                "IwCKEditor": "Kenng\\FilamentCkeditor\\Fields\\CKEditor"
+            }
+        }
+    },
     "minimum-stability": "dev"
 }
