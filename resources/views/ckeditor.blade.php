@@ -20,80 +20,12 @@
         >
             <div id="iw-ckeditor-{{ $editorId }}" class="iw-ckeditor-body"></div>
         </div>
-        <style>
-            .ck-editor-container {
-                width: 100%;
-                margin: 20px auto;
-            }
-
-            .iw-ckeditor-body {
-                flex: 1 1 0%;
-            }
-
-            .ck-editor__editable {
-                resize: vertical;
-                max-height: 400px;
-            }
-
-            .ck.ck-content.ck-editor__editable,
-            .ck.ck-content.ck-editor__editable ul,
-            .ck.ck-content.ck-editor__editable ol {
-                padding: 20px;
-            }
-
-            .ck-editor__editable:not(.ck-read-only) .ck-widget_selected .ck-media__wrapper>:not(.ck-media__placeholder) {
-                pointer-events: initial  !important;
-            }
-        </style>
         <script>
-            if ('undefined' === typeof ExtendHTMLSupport) {
-                class ExtendHTMLSupport extends Plugin {
-                    init() {
-                        // Extend schema with custom HTML elements.
-                        const dataFilter = this.editor.plugins.get( 'DataFilter' );
-                        const dataSchema = this.editor.plugins.get( 'DataSchema' );
-
-                        // Block element
-                        dataSchema.registerBlockElement( {
-                            view: 'whatsapp',
-                            model: 'myElementBlock',
-                            modelSchema: {
-                                inheritAllFrom: '$block'
-                            }
-                        } );
-
-                        dataFilter.allowElement( 'whatsapp' );
-                    }
-                }
-            // }
-
-            // function initCustomElement(editor, name) {
-            //     if (!window.iwCkEditorcustomElement) window.iwCkEditorcustomElement = [];
-            //     if (window.iwCkEditorcustomElement[name]) return
-
-            //     const dataFilter = editor.plugins.get( 'DataFilter' );
-            //     const dataSchema = editor.plugins.get( 'DataSchema' );
-
-            //     dataSchema.registerBlockElement( {
-            //         isBlock: true,
-            //         view: 'div',
-            //         model: name,
-            //         modelSchema: {
-            //             inheritAllFrom: '$block'
-            //         }
-            //     } );
-
-            //     dataFilter.allowElement( 'whatsapp' );
-
-            //     window.iwCkEditorcustomElement[name] = 1;
-            // }
-
-            // if ('undefined' === typeof initIwFilamentCkeditor) {
+            if ('undefined' === typeof initIwFilamentCkeditor) {
                 function initIwFilamentCkeditor(name, state) {
                     ClassicEditor
                         .create( document.querySelector(name), {
                             allowedContent: true,
-                            // plugins: [ExtendHTMLSupport],
                             toolbar: {
                                 items: [
                                     'sourceEditing', 'undo', 'redo', '|',
@@ -158,26 +90,10 @@
                                 }
                             },
                             removePlugins: [
-                                    'MediaEmbedToolbar',
-                            //     'CKBox',
-                            //     'CKFinder',
-                            //     'EasyImage',
-                            //     'RealTimeCollaborativeComments',
-                            //     'RealTimeCollaborativeTrackChanges',
-                            //     'RealTimeCollaborativeRevisionHistory',
-                            //     'PresenceList',
-                            //     'Comments',
-                            //     'TrackChanges',
-                            //     'TrackChangesData',
-                            //     'RevisionHistory',
-                            //     'Pagination',
-                            //     'WProofreader',
-                            //     'MathType'
+                                'MediaEmbedToolbar',
                             ]
                     })
                     .then(editor => {
-                        // initCustomElement(editor, 'whatsapp')
-                        // debugger
                         editor.setData(state);
                         window.editor = editor;
                     }).catch( error => {

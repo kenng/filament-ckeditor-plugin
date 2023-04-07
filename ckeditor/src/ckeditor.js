@@ -128,44 +128,6 @@ Editor.builtinPlugins = [
     WordCount,
 ];
 
-function registerSchemaAndConversion(editor, elementName) {
-    if (!editor.model.schema.isRegistered(elementName)) {
-        editor.model.schema.register(elementName, {
-            inheritAllFrom: '$block',
-            isLimit: false,
-        });
-    }
-
-    editor.conversion.for('downcast').elementToElement({
-        model: elementName,
-        view: elementName,
-    });
-
-    editor.conversion.for('upcast').elementToElement({
-        view: {
-            name: elementName,
-        },
-        model: elementName,
-        converterPriority: 'low',
-    });
-}
-
-class WhatsappPlugin extends Plugin {
-    static elementName = 'whatsapp';
-
-    init() {
-        registerSchemaAndConversion(this.editor, WhatsappPlugin.elementName);
-    }
-}
-
-class WechatPlugin extends Plugin {
-    static elementName = 'wechat';
-
-    init() {
-        registerSchemaAndConversion(this.editor, WechatPlugin.elementName);
-    }
-}
-
 class HeadingWithElement extends Plugin {
     init() {
         this._defineSchema();
@@ -183,12 +145,7 @@ class HeadingWithElement extends Plugin {
 
 // Editor configuration.
 Editor.defaultConfig = {
-    plugins: [
-        WhatsappPlugin,
-        WechatPlugin,
-        ...Editor.builtinPlugins,
-        HeadingWithElement,
-    ],
+    plugins: [...Editor.builtinPlugins, HeadingWithElement],
     fontSize: {
         options: [10, 12, 14, 'default', 18, 20, 22, 24, 26, 28, 36, 48, 72],
         supportAllValues: true,

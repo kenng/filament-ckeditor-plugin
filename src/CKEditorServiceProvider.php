@@ -24,15 +24,15 @@ class CKEditorServiceProvider extends PluginServiceProvider
     ];
 
     protected array $styles = [
-        // 'plugin-filament-signature-pad' => __DIR__ . '/../resources/dist/filament-signature-pad.css',
+        'filament-ckeditor-styles' => __DIR__ . '/../ckeditor/build/style.css',
     ];
 
     protected array $scripts = [
-        //        'plugin-filament-signature-pad' => __DIR__.'/../resources/dist/filament-signature-pad.js',
+        // 'filament-ckeditor-script' => __DIR__ . '/../ckeditor/build/ckeditor.js',
     ];
 
     protected array $beforeCoreScripts = [
-        'ckeditor-super-v36.0.1' => __DIR__ . '/../resources/js/ckeditor.js',
+        'filament-ckeditor-v36.0.1-1' => __DIR__ . '/../ckeditor/build/ckeditor.js',
     ];
 
     public function configurePackage(Package $package): void
