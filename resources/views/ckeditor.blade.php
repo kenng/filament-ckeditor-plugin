@@ -34,6 +34,16 @@
                 resize: vertical;
                 max-height: 400px;
             }
+
+            .ck.ck-content.ck-editor__editable,
+            .ck.ck-content.ck-editor__editable ul,
+            .ck.ck-content.ck-editor__editable ol {
+                padding: 20px;
+            }
+
+            .ck-editor__editable:not(.ck-read-only) .ck-widget_selected .ck-media__wrapper>:not(.ck-media__placeholder) {
+                pointer-events: initial  !important;
+            }
         </style>
         <script>
             if ('undefined' === typeof ExtendHTMLSupport) {
